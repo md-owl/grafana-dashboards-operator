@@ -1,0 +1,16 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: gpu-util
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  folder: infrastructure
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  resyncPeriod: 1m
+  configMapRef:
+    name: dashboards
+    key: gpu-util.json

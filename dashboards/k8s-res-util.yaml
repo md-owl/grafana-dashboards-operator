@@ -1,0 +1,16 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: k8s-res-util
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  folder: infrastructure
+  resyncPeriod: 1m
+  configMapRef:
+    name: dashboards
+    key: k8s-res-util.json
